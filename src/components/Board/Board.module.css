@@ -1,0 +1,79 @@
+.board {
+  position: relative;
+  --board-side-length: min(calc(100vw - 16px), calc(100dvh - 210px), 440px);
+  --board-tile-size: calc(var(--board-side-length) / 15);
+  --player-name-spacing: calc(var(--board-tile-size) * 0.25);
+  height: var(--board-side-length);
+  width: var(--board-side-length);
+  margin: auto;
+  user-select: none;
+}
+
+.boardImage {
+  height: var(--board-side-length);
+  width: var(--board-side-length);
+  background-color: #ffffff;
+  display: block;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55), 0 0 20px rgba(0, 0, 0, 0.35);
+  border-radius: 4px;
+}
+
+/* Embedded Player Name Tags on Board Bases matching reference image */
+.baseNameTag {
+  position: absolute;
+  width: calc(var(--board-tile-size) * 6);
+  height: var(--board-tile-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: clamp(0.74rem, calc(var(--board-tile-size) * 0.46), 0.94rem);
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9), 0 0 6px rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+  z-index: 6;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 4px;
+  box-sizing: border-box;
+}
+
+.baseNameTag.blue {
+  bottom: 0;
+  left: 0;
+}
+
+.baseNameTag.green {
+  top: 0;
+  right: 0;
+}
+
+.baseNameTag.red {
+  top: 0;
+  left: 0;
+}
+
+.baseNameTag.yellow {
+  bottom: 0;
+  right: 0;
+}
+
+.baseNameTag.activeTurn {
+  animation: nameGlow 1.4s ease-in-out infinite alternate;
+}
+
+@keyframes nameGlow {
+  0% {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9), 0 0 4px rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9), 0 0 10px rgba(255, 255, 255, 0.95);
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .board {
+    --board-side-length: min(calc(100vw - 12px), calc(100dvh - 200px), 440px);
+  }
+}

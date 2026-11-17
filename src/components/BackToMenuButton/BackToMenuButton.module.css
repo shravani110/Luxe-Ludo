@@ -1,0 +1,71 @@
+.backBtn {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px 8px 10px;
+  background: rgba(18, 22, 34, 0.65);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 9999px;
+  color: #e2e8f0;
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.backBtn:hover {
+  background: rgba(28, 35, 54, 0.85);
+  border-color: rgba(255, 255, 255, 0.28);
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5), 0 0 12px rgba(0, 210, 255, 0.25);
+  color: #ffffff;
+}
+
+.backBtn:active {
+  transform: translateY(1px) scale(0.97);
+  background: rgba(15, 18, 28, 0.8);
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  color: #00d2ff;
+}
+
+.chevron {
+  margin-right: -2px;
+  transition: transform 0.2s ease;
+}
+
+.backBtn:hover .chevron {
+  transform: translateX(-2px);
+}
+
+.restaurantIcon {
+  color: #ffd166;
+}
+
+.text {
+  line-height: 1;
+}
+
+@media (max-width: 360px) {
+  .backBtn {
+    top: 8px;
+    left: 8px;
+    padding: 6px 10px 6px 8px;
+    font-size: 0.75rem;
+  }
+}

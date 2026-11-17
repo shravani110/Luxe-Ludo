@@ -1,0 +1,182 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 12px;
+  background: rgba(18, 22, 34, 0.55);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  user-select: none;
+}
+
+.card.activeTurn {
+  background: var(--player-bg);
+  border-color: var(--player-border);
+  box-shadow: 0 0 20px var(--player-glow), 0 8px 24px rgba(0, 0, 0, 0.5);
+  transform: translateY(-2px);
+}
+
+.turnPulseRing {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--player-hex), transparent);
+  animation: scanline 2s infinite ease-in-out;
+}
+
+@keyframes scanline {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatarWrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--player-hex);
+}
+
+.colourDot {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--player-hex);
+  border: 2px solid #0d111b;
+  box-shadow: 0 0 8px var(--player-glow);
+}
+
+.info {
+  flex: 1;
+  min-width: 0;
+}
+
+.nameRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.roleSubtext {
+  font-size: 0.7rem;
+  color: #94a3b8;
+}
+
+.turnBadge {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: var(--player-hex);
+  color: #0b0f19;
+  box-shadow: 0 0 10px var(--player-glow);
+}
+
+.rankBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: rgba(255, 215, 0, 0.2);
+  border: 1px solid rgba(255, 215, 0, 0.4);
+  color: #ffd700;
+}
+
+.crownIcon {
+  color: #ffd700;
+}
+
+.tokenPills {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.progressLabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.68rem;
+  color: #cbd5e1;
+}
+
+.activePill {
+  color: var(--player-hex);
+  font-weight: 600;
+}
+
+.dotsRow {
+  display: flex;
+  gap: 4px;
+}
+
+.tokenDot {
+  flex: 1;
+  height: 5px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.dotLocked {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.dotBoard {
+  background: var(--player-hex);
+  box-shadow: 0 0 6px var(--player-glow);
+}
+
+.dotHome {
+  background: #ffffff;
+  box-shadow: 0 0 8px #ffffff;
+}
+
+@media (max-width: 380px) {
+  .card {
+    padding: 8px 10px;
+  }
+  .name {
+    font-size: 0.78rem;
+  }
+}

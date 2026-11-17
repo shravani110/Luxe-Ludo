@@ -1,0 +1,177 @@
+.appContainer {
+  position: relative;
+  height: 100vh;
+  height: 100dvh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.themeClassic {
+  background-color: #041c42;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.themeDark {
+  background-color: #07090e;
+  background-image: 
+    radial-gradient(circle at 50% 10%, rgba(0, 210, 255, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 80% 90%, rgba(255, 51, 102, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(0, 245, 155, 0.06) 0%, transparent 50%);
+}
+
+.mobileViewport {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 460px;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 8px 12px;
+  box-sizing: border-box;
+  justify-content: space-between;
+  overflow: hidden;
+  user-select: none;
+}
+
+.mobileViewport::-webkit-scrollbar {
+  display: none;
+}
+.mobileViewport {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Header & Controls */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 44px;
+  flex-shrink: 0;
+  z-index: 20;
+}
+
+.navSpacer {
+  width: 84px; /* Space for the floating 'Menu' button on top-left */
+  flex-shrink: 0;
+}
+
+.navControls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.iconBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  background: rgba(18, 22, 34, 0.65);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #f1f5f9;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.iconBtn:hover {
+  background: rgba(30, 38, 58, 0.85);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.iconBtn:active {
+  transform: scale(0.94);
+}
+
+/* Board Center Area */
+.boardContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-height: 0;
+  padding: 24px 0 28px;
+}
+
+/* Bottom Floating Status Banner */
+.statusFooter {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+  padding-top: 4px;
+}
+
+.statusPill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(18, 22, 34, 0.75);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 9999px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  user-select: none;
+}
+
+.colorDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: dotPulse 1.4s infinite ease-in-out;
+}
+
+@keyframes dotPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.6; }
+}
+
+.statusText {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.streakNotice {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.18);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  padding: 1px 7px;
+  border-radius: 6px;
+  margin-left: 2px;
+}
+
+@media (max-height: 720px) {
+  .mobileViewport {
+    padding: 6px 10px 8px;
+  }
+  .boardContainer {
+    padding: 18px 0 22px;
+  }
+  .statusPill {
+    padding: 6px 12px;
+    font-size: 0.76rem;
+  }
+}
